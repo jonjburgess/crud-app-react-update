@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const FETCH_POST = 'FETCH_POST';
 export const CREATE_POST = 'CREATE_POST';
@@ -8,7 +6,8 @@ export const DELETE_POST = 'DELETE_POST';
 const ROOT_URL = 'http://localhost:3000/api';
 
 export function fetchPosts() {
-  const request = axios.get(`${ROOT_URL}/kittens`);
+  const request = fetch(`${ROOT_URL}/kittens`).then(r => r.json());
+
   return {
     type: FETCH_POSTS,
     payload: request
@@ -16,7 +15,8 @@ export function fetchPosts() {
 }
 
 export function fetchPost(id) {
-  const request = axios.get(`${ROOT_URL}/kittens/${id}`);
+  const request = fetch(`${ROOT_URL}/kittens/${id}`).then(r => r.json());
+
   return {
     type: FETCH_POST,
     payload: request
@@ -24,7 +24,16 @@ export function fetchPost(id) {
 }
 
 export function createPost(props) {
-  const request = axios.post(`${ROOT_URL}/kittens`, props);
+  const options = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(props)
+  };
+
+  const request = fetch(`${ROOT_URL}/kittens`, options).then(r => r.json());
 
   return {
     type: CREATE_POST,
@@ -33,7 +42,8 @@ export function createPost(props) {
 }
 
 export function deletePost(id) {
-  const request = axios.delete(`${ROOT_URL}/kittens/${id}`);
+  const request = fetch(`${ROOT_URL}/kittens/${id}`, { method: 'DELETE' }).then(r => r.json());
+
   return {
     type: DELETE_POST,
     payload: request

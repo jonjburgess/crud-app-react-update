@@ -9,7 +9,7 @@ class PostsNew extends Component {
     this.state = {
       created: false
     };
-  };
+  }
 
   renderInput(field) {
     return(
@@ -20,15 +20,12 @@ class PostsNew extends Component {
     );
   }
 
-  onSubmit(values, dispatch, props) {
+  onSubmit(values, dispatch) {
     dispatch(createPost(values))
       .then(() => {
         this.setState({ created: true });
-      })
-      .catch(() => {
-        console.log('failed to create......');
       });
-  };
+  }
 
   render() {
     const { handleSubmit } = this.props;

@@ -17,7 +17,6 @@ const NotFound = ({ match, location }) => {
       <Route path="/about/:section" component={Section} />
       <p>{JSON.stringify(match)}</p>
       <p>{JSON.stringify(location)})</p>
-      <p>{new URLSearchParams(location.search).get('id')}</p>
     </div>
   );
 }

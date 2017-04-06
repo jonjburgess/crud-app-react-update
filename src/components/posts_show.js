@@ -9,7 +9,7 @@ class PostsShow extends Component {
     this.state = {
       deleted: false
     };
-  };
+  }
 
   componentWillMount() {
     this.props.fetchPost(this.props.match.params.id);
