@@ -1,6 +1,7 @@
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const FETCH_POST = 'FETCH_POST';
 export const CREATE_POST = 'CREATE_POST';
+export const UPDATE_POST = 'UPDATE_POST';
 export const DELETE_POST = 'DELETE_POST';
 
 const ROOT_URL = 'http://localhost:3000/api';
@@ -37,6 +38,24 @@ export function createPost(props) {
 
   return {
     type: CREATE_POST,
+    payload: request
+  };
+}
+
+export function updatePost(props, id) {
+  const options = {
+    method: 'PUT',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(props)
+  };
+
+  const request = fetch(`${ROOT_URL}/kittens/${id}`, options).then(r => r.json());
+
+  return {
+    type: UPDATE_POST,
     payload: request
   };
 }

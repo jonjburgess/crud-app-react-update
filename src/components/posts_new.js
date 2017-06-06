@@ -14,7 +14,7 @@ class PostsNew extends Component {
   renderInput(field) {
     return(
       <div>
-        <input {...field.input} type={field.type} />
+        <input {...field.input} type={field.type} className="form-control" />
         <div>{field.meta.touched ? field.meta.error : ''}</div>
       </div>
     );
@@ -38,46 +38,48 @@ class PostsNew extends Component {
 
     return(
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <h3>Create Form</h3>
-
-        <div className="form-group">
-          <label htmlFor="name">Name</label>
-          <Field
-            name="name"
-            component={this.renderInput}
-            type="text"
-            className="form-control" />
+        <div className="jumbotron jumbotron-fluid">
+          <div className="container">
+            <h1 className="display-5">Create From</h1>
+          </div>
         </div>
 
-        <div className="form-group">
-          <label htmlFor="breed">Breed</label>
-          <Field
-            name="breed"
-            component={this.renderInput}
-            type="text"
-            className="form-control" />
-        </div>
+        <div className="container">
+          <div className="form-group">
+            <label htmlFor="name">Name</label>
+            <Field
+              name="name"
+              component={this.renderInput}
+              type="text" />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="age">Age</label>
-          <Field
-            name="age"
-            component={this.renderInput}
-            type="text"
-            className="form-control" />
-        </div>
+          <div className="form-group">
+            <label htmlFor="breed">Breed</label>
+            <Field
+              name="breed"
+              component={this.renderInput}
+              type="text" />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="sex">Gender</label>
-          <Field
-            name="sex"
-            component={this.renderInput}
-            type="text"
-            className="form-control" />
-        </div>
+          <div className="form-group">
+            <label htmlFor="age">Age</label>
+            <Field
+              name="age"
+              component={this.renderInput}
+              type="number" />
+          </div>
 
-        <button type="submit" className="btn btn-primary">Save</button>
-        <Link to="/" className="btn btn-danger">Cancel</Link>
+          <div className="form-group">
+            <label htmlFor="sex">Gender</label>
+            <Field
+              name="sex"
+              component={this.renderInput}
+              type="text" />
+          </div>
+
+          <Link to="/">Cancel</Link>
+          <button type="submit" className="btn btn-primary pull-right">Save</button>
+        </div>
       </form>
     );
   }

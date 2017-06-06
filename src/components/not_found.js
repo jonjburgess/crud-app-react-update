@@ -8,15 +8,22 @@ const Section = ({match}) => {
 const NotFound = ({ match, location }) => {
   return (
     <div>
-      <h1>Not Found</h1>
+      <div className="jumbotron jumbotron-fluid">
+        <div className="container">
+          <h1 className="display-3">Not Found</h1>
+          <p className="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        </div>
+      </div>
 
-      <h2>Nested route example</h2>
-      <Link to="/about/food">food</Link>
-      <Link to="/about/drinks">drinks</Link>
-      <Link to="/about/sides">sides</Link>
-      <Route path="/about/:section" component={Section} />
-      <p>{JSON.stringify(match)}</p>
-      <p>{JSON.stringify(location)})</p>
+      <div className="container">
+        <h2>Nested route example</h2>
+        <Link to="/about/food">food</Link>
+        <Link to="/about/drinks">drinks</Link>
+        <Link to="/about/sides">sides</Link>
+        <Route path="/about/:section" component={Section} />
+        <p>{JSON.stringify(match)}</p>
+        <p>{JSON.stringify(location)})</p>
+      </div>
     </div>
   );
 }

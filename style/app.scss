@@ -1,11 +1,15 @@
-a {
-  margin: 5px
+.ais-SearchBox__root {
+  max-width: unset;
 }
 
-a, a:visited {
-  color: blue;
-}
+.ais-Pagination__item {
+  width: 35px;
 
-a.active {
-  color: red;
+  .ais-Pagination__itemLink {
+    width: unset;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
